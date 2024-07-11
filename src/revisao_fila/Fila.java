@@ -21,14 +21,8 @@ public class Fila<T> {
         return false;
     }
     
-    public T equeue(){
-        if(!isFull()){
-            fim++;
-            elementos[fim] = novoDado;
-            System.out.println("Elemento adicionado, index início = "+inicio+" index fim = "+fim);
-            return true;
-        }
-        return elementos[inicio];
+    public T dequeue(){
+        return elementos[inicio++];
     }
     
     public boolean isEmpty(){
@@ -37,5 +31,23 @@ public class Fila<T> {
     
     public boolean isFull(){
        return elementos.length-1 == fim;
+    }
+    
+    public T first(){
+        return elementos[inicio];
+    }
+    
+    public T last(){
+        return elementos[fim];
+    }
+    
+    @Override
+    public String toString(){
+        StringBuilder retorno = new StringBuilder();
+        for(int i=inicio;i>=fim;i++){
+            retorno.append(elementos[i] + " - ");
+        }
+        
+        return retorno.toString();
     }
 }

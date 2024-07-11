@@ -29,4 +29,8 @@ public class Caminhoneiro {
         this.horarioChegada = horarioChegada;
     }
     
+    @Override
+    public String toString(){
+        return getNome();
+    }
 }
